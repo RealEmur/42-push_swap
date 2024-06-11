@@ -48,7 +48,10 @@ int		main(int size, char **args)
 	stack_a = 0;
 	char_lst = parse_args(args, size);
 	if(char_lst == 0)
+	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
+		exit(1);
+	}
 	if(!init_stack(&stack_a, char_lst))
 	{
 		ft_lstclear(&stack_a, del_list);
