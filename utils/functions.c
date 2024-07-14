@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   del_list.c                                         :+:      :+:    :+:   */
+/*   functions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/07 05:48:50 by emyildir          #+#    #+#             */
-/*   Updated: 2024/05/07 05:49:01 by emyildir         ###   ########.fr       */
+/*   Created: 2024/06/12 16:55:24 by emyildir          #+#    #+#             */
+/*   Updated: 2024/06/17 18:36:05 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-
-void	del_list(void *content)
+int	min(int num1, int num2)
 {
-	free(content);
+	if (num1 < num2)
+		return (num1);
+	return (num2);
 }

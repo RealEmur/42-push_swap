@@ -10,15 +10,27 @@ OBJS = $(SOURCES:.c=.o)
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+PRINTF_PATH = ft_printf
+PRINTF_SRCS = $(PRINTF_PATH)/ft_printf.c $(PRINTF_PATH)/utils/ft_putchar.c $(PRINTF_PATH)/handlers/handle_char.c \
+			$(PRINTF_PATH)/handlers/handle_string.c $(PRINTF_PATH)/utils/ft_putstr.c $(PRINTF_PATH)/utils/print_base.c \
+			$(PRINTF_PATH)/handlers/handle_hex_lower.c $(PRINTF_PATH)/handlers/handle_hex_upper.c \
+			$(PRINTF_PATH)/handlers/handle_address.c $(PRINTF_PATH)/handlers/handle_int.c \
+			$(PRINTF_PATH)/handlers/handle_unsigned_int.c
+PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
+
+GNL_PATH = get_next_line
+GNL_SRCS = $(GNL_PATH)/get_next_line.c $(GNL_PATH)/get_next_line_utils.c
+GNL_OBJS = $(GNL_SRCS:.c=.o)
+
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar -rc $(NAME) $(OBJS)
+$(NAME): $(SOURCES) $(OBJS) $(PRINTF_SRCS) $(PRINTF_OBJS) $(GNL_SRCS) $(GNL_OBJS)
+	ar -rc $(NAME) $(OBJS) $(PRINTF_OBJS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
 	
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) 
 	
 re: fclean all

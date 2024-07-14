@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 12:25:16 by emyildir          #+#    #+#             */
-/*   Updated: 2024/05/07 01:29:29 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/12 23:07:52 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "./ft_printf/ft_printf.h"
+
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
