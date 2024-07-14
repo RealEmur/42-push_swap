@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 00:08:00 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/10 18:38:54 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/14 09:50:08 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ int	do_operations(t_list **stack_a, t_list **stack_b)
 		if (!line)
 			break ;
 		else if (!is_operation(line))
-		{
-			free(line);
-			return (0);
-		}
+			return (free(line), 0);
 		line[ft_strlen(line) - 1] = '\0';
 		do_action(stack_a, stack_b, line, 0);
 		free(line);

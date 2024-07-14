@@ -7,7 +7,7 @@ SOURCES = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_st
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstdelone.c ft_lstlast.c ft_lstadd_back.c \
 		ft_lstiter.c ft_lstclear.c ft_lstmap.c
 OBJS = $(SOURCES:.c=.o)
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 PRINTF_PATH = ft_printf
@@ -19,13 +19,13 @@ PRINTF_SRCS = $(PRINTF_PATH)/ft_printf.c $(PRINTF_PATH)/utils/ft_putchar.c $(PRI
 PRINTF_OBJS = $(PRINTF_SRCS:.c=.o)
 
 GNL_PATH = get_next_line
-GNL_SRCS = $(GNL_PATH)/get_next_line.c $(GNL_PATH)/get_next_line_utils.c
+GNL_SRCS = $(GNL_PATH)/get_next_line.c 
 GNL_OBJS = $(GNL_SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(SOURCES) $(OBJS) $(PRINTF_SRCS) $(PRINTF_OBJS) $(GNL_SRCS) $(GNL_OBJS)
-	ar -rc $(NAME) $(OBJS) $(PRINTF_OBJS)
+	ar -rc $(NAME) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
 
 clean:
 	$(RM) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
