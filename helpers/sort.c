@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 08:45:51 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/10 01:33:39 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/15 02:44:11 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,31 +30,31 @@ void	sort_three(t_list **stack)
 		temp = temp->next;
 	}
 	if (*((int *)(*stack)->content) == max)
-		do_action(stack, 0, "ra", 1);
+		do_action(stack, 0, "ra");
 	else if (*((int *) ft_lstlast((*stack))->content) == min)
-		do_action(stack, 0, "rra", 1);
+		do_action(stack, 0, "rra");
 	if (!is_stack_sorted(*stack, "asc"))
-		do_action(stack, 0, "sa", 1);
+		do_action(stack, 0, "sa");
 	if (!is_stack_sorted(*stack, "asc"))
-		do_action(stack, 0, "ra", 1);
+		do_action(stack, 0, "ra");
 }
 
 void	do_set_of_actions(t_action act, t_list **stack_a, \
 t_list **stack_b, char *push)
 {
 	while (act.rr--)
-		do_action(stack_a, stack_b, "rr", 1);
+		do_action(stack_a, stack_b, "rr");
 	while (act.ra--)
-		do_action(stack_a, stack_b, "ra", 1);
+		do_action(stack_a, stack_b, "ra");
 	while (act.rb--)
-		do_action(stack_a, stack_b, "rb", 1);
+		do_action(stack_a, stack_b, "rb");
 	while (act.rrr--)
-		do_action(stack_a, stack_b, "rrr", 1);
+		do_action(stack_a, stack_b, "rrr");
 	while (act.rra--)
-		do_action(stack_a, stack_b, "rra", 1);
+		do_action(stack_a, stack_b, "rra");
 	while (act.rrb--)
-		do_action(stack_a, stack_b, "rrb", 1);
-	do_action(stack_a, stack_b, push, 1);
+		do_action(stack_a, stack_b, "rrb");
+	do_action(stack_a, stack_b, push);
 }
 
 void	sort(t_list **stack_a, t_list **stack_b)
@@ -67,14 +67,14 @@ void	sort(t_list **stack_a, t_list **stack_b)
 	if (!is_stack_sorted(*stack_a, "asc"))
 		sort_three(stack_a);
 	while (!is_stack_sorted(*stack_b, "desc"))
-		do_action(0, stack_b, "rrb", 1);
+		do_action(0, stack_b, "rrb");
 	while (*stack_b)
 	{
 		index = get_target_index(*((int *)(*stack_b)->content), \
 			*stack_a, TARGET_BIGGER_LOWEST);
 		while (index != 0)
 		{
-			do_action(stack_a, 0, "rra", 1);
+			do_action(stack_a, 0, "rra");
 			index = get_target_index(*((int *)(*stack_b)->content), \
 			*stack_a, TARGET_BIGGER_LOWEST);
 		}
@@ -82,5 +82,5 @@ void	sort(t_list **stack_a, t_list **stack_b)
 		0, 0), stack_a, stack_b, "pa");
 	}
 	while (!is_stack_sorted(*stack_a, "asc"))
-		do_action(stack_a, 0, "rra", 1);
+		do_action(stack_a, 0, "rra");
 }

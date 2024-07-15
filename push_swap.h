@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:29:58 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/10 01:39:39 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/15 02:43:08 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ int			get_min_num_index(t_list *stack);
 int			is_stack_sorted(t_list *stack, char *type);
 int			get_target_index(int num, t_list *stack, int target);
 void		sort(t_list **stack_a, t_list **stack_b);
-void		do_action(t_list **stack_a, t_list **stack_b, char *move, \
-int print);
+void		do_action(t_list **stack_a, t_list **stack_b, char *move);
 void		set_stack_actions(t_action *act, int s_index, \
 int s_size, char stack);
 void		set_rrs(t_action *act);

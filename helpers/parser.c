@@ -6,11 +6,25 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:41:46 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/10 00:43:38 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/15 03:24:05 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	compare_num_strs(char *org_num, char *new_num)
+{
+	if (*org_num == '+' || *org_num == '-')
+	{
+		if (*org_num == '-' && *new_num != '-')
+			return (0);
+		org_num++;
+		new_num += *new_num == '-';
+	}
+	while (org_num[0] == '0' && org_num[1] != '\0')
+		org_num++;
+	return (ft_strncmp(org_num, new_num, ft_strlen(new_num)));
+}
 
 int	is_valid_part(t_list **lst, char *str)
 {
@@ -19,14 +33,14 @@ int	is_valid_part(t_list **lst, char *str)
 	int		i;
 
 	i = 0;
-	if (str[i] == '-')
+	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i])
 		if (!ft_isdigit(str[i++]))
 			return (0);
 	i = ft_atoi(str);
 	num_str = ft_itoa(i);
-	if (!num_str || ft_strncmp(str, num_str, ft_strlen(str)))
+	if (!num_str || compare_num_strs(str, num_str))
 		return (free(num_str), 0);
 	free(num_str);
 	list = *lst;
