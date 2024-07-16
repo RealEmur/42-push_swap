@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:33:32 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/15 03:29:44 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/16 16:21:33 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int size, char **args)
 	if (char_lst == 0)
 	{
 		ft_putstr_fd("Error\n", STDERR_FILENO);
-		exit(0);
+		exit(1);
 	}
 	if (!init_stack_a(&stack_a, char_lst))
 		ft_lstclear(&stack_a, free);

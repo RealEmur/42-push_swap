@@ -6,7 +6,7 @@
 /*   By: emyildir <emyildir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 01:41:46 by emyildir          #+#    #+#             */
-/*   Updated: 2024/07/15 03:24:05 by emyildir         ###   ########.fr       */
+/*   Updated: 2024/07/16 15:42:38 by emyildir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	compare_num_strs(char *org_num, char *new_num)
 {
 	if (*org_num == '+' || *org_num == '-')
 	{
-		if (*org_num == '-' && *new_num != '-')
-			return (0);
+		if (*org_num == '-' && (*new_num != '-' && *new_num != '0'))
+			return (1);
 		org_num++;
 		new_num += *new_num == '-';
 	}
